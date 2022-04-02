@@ -53,13 +53,13 @@ class NissanConnectVehicle {
     return NissanConnectBattery(response.body);
   }
 
-  Future<NissanConnectCockpit> requestCockpitStatus() async {
+  Future<NissanConnectCockpitStatus> requestCockpitStatus() async {
     var response = await session.requestWithRetry(
         endpoint:
             '${session.settings['EU']['car_adapter_base_url']}v1/cars/$vin/cockpit',
         method: 'GET');
 
-    return NissanConnectCockpit(response.body);
+    return NissanConnectCockpitStatus(response.body);
   }
 
   Future<NissanConnectStats> requestMonthlyStatistics(

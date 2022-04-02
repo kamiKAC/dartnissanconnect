@@ -15,7 +15,7 @@ main() {
     print(vehicle.vin);
 
     vehicle.requestCockpitStatus().then((info) {
-      print(info.totalMilage);
+      print(info.totalMileage);
     });
   });
 }

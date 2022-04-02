@@ -1,9 +1,7 @@
-class NissanConnectCockpit {
-//  var totalKm;
-  var totalMilage;
+class NissanConnectCockpitStatus {
+  var totalMileage;
 
-  NissanConnectCockpit(Map map) {
-//    this.totalKm = map['totalKm'];
-    this.totalMilage = map['data']['attributes']['totalMileage'];
+  NissanConnectCockpitStatus(Map map) {
+    this.totalMileage = map['data']['attributes']['totalMileage'];
   }
 }
