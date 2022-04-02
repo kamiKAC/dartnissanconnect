@@ -2,8 +2,6 @@ import 'package:dartnissanconnect/dartnissanconnect.dart';
 import 'package:dartnissanconnect/src/nissanconnect_lock_status.dart';
 import 'package:dartnissanconnect/src/date_helper.dart';
 import 'package:dartnissanconnect/src/nissanconnect_hvac.dart';
-import 'package:dartnissanconnect/src/nissanconnect_location.dart';
-import 'package:dartnissanconnect/src/nissanconnect_stats.dart';
 import 'package:intl/intl.dart';
 
 enum Period { DAILY, MONTHLY, YEARLY }
@@ -53,6 +51,15 @@ class NissanConnectVehicle {
         method: 'GET');
 
     return NissanConnectBattery(response.body);
+  }
+
+  Future<NissanConnectCockpit> requestCockpitStatus() async {
+    var response = await session.requestWithRetry(
+        endpoint:
+            '${session.settings['EU']['car_adapter_base_url']}v1/cars/$vin/cockpit',
+        method: 'GET');
+
+    return NissanConnectCockpit(response.body);
   }
 
   Future<NissanConnectStats> requestMonthlyStatistics(
