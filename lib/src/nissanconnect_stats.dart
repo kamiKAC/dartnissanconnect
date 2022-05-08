@@ -4,6 +4,14 @@ import 'package:intl/intl.dart';
 class NissanConnectStats {
   late DateTime date;
   late int tripsNumber;
+
+  // Additional raw values
+  late var distance;
+  late var duration;
+  late var consumedElectricity;
+  late var savedElectricity;
+  late var co2Saving;
+
   late String milesPerKWh;
   late String kilometersPerKWh;
   late String kWhPerMiles;
@@ -18,6 +26,12 @@ class NissanConnectStats {
 
   NissanConnectStats(Map trip) {
     UnitCalculator unitCalculator = UnitCalculator();
+
+    this.distance = trip['distance'];
+    this.duration = trip['duration'];
+    this.consumedElectricity = trip['consumedElectricity'];
+    this.savedElectricity = trip['savedElectricity'];
+    this.co2Saving = trip['co2Saving'];
 
     // consumedElectricity is in kilowatt not watt; thus multiply by 1000
     var consumedElectricity = trip['consumedElectricity'] * 1000;
