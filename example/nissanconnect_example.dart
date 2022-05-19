@@ -17,5 +17,18 @@ main() {
     vehicle.requestCockpitStatus().then((info) {
       print(info.totalMileage);
     });
+
+    vehicle.requestDailyStatistics( DateTime( 2022, 4, 27))
+    .then((info) {
+      print(info.date);
+      print(info.tripsNumber);
+    }).catchError((err) {
+      print("no data");
+    });
+
+    // vehicle.requestMonthlyStatistics(month: DateTime.now()).then((info) {
+    //   print(info.date);
+    //   print(info.tripsNumber);
+    // });
   });
 }

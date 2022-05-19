@@ -79,15 +79,16 @@ class NissanConnectVehicle {
         response.body['data']['attributes']['summaries'].last);
   }
 
-  Future<NissanConnectStats> requestDailyStatistics() async {
-    var start = DateTime.now();
+  Future<NissanConnectStats> requestDailyStatistics(DateTime day) async {
+    var start = DateTime.utc(day.year, day.month, day.day);
     var end = start;
     var response = await session.requestWithRetry(
         endpoint:
             '${session.settings['EU']['car_adapter_base_url']}v1/cars/$vin/trip-history?start=${_targetDateFormatter.format(start)}&end=${_targetDateFormatter.format(end)}&type=${Period.DAILY.index}',
         method: 'GET');
-    return NissanConnectStats(
-        response.body['data']['attributes']['summaries'].last);
+    if (response.statusCode >= 400)
+        throw Exception("No data available for the requested day");
+    return NissanConnectStats(response.body['data']['attributes']['summaries'].last);
   }
 
   Future<List<NissanConnectStats>> requestMonthlyTripsStatistics(
