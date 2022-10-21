@@ -1,6 +1,6 @@
 name: dartnissanconnect
 description: A library for the NissanConnect API.
-version: 1.0.2
+version: 1.0.3
 homepage: https://gitlab.com/tobiaswkjeldsen/dartnissanconnect
 
 environment:
