@@ -88,6 +88,8 @@ class NissanConnectVehicle {
         method: 'GET');
     if (response.statusCode >= 400)
         throw Exception("No data available for the requested day");
+    if (response.body['data']['attributes']['summaries'].length == 0)
+        throw Exception("No data available for the requested day");
     return NissanConnectStats(response.body['data']['attributes']['summaries'].last);
   }
 

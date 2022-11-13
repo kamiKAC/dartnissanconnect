@@ -18,7 +18,7 @@ main() {
       print(info.totalMileage);
     });
 
-    vehicle.requestDailyStatistics( DateTime( 2022, 9, 28))
+    vehicle.requestDailyStatistics( DateTime( 2022, 11, 13))
     .then((info) {
       print(info.date);
       print(info.tripsNumber);
