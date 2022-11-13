@@ -1,9 +1,7 @@
 import 'package:dartnissanconnect/dartnissanconnect.dart';
 import 'package:dartnissanconnect/src/date_helper.dart';
 import 'package:dartnissanconnect/src/nissanconnect_hvac.dart';
-import 'package:dartnissanconnect/src/nissanconnect_location.dart';
 import 'package:dartnissanconnect/src/nissanconnect_lock_status.dart';
-import 'package:dartnissanconnect/src/nissanconnect_stats.dart';
 import 'package:intl/intl.dart';
 
 enum Period { DAILY, MONTHLY, YEARLY }
