@@ -1,7 +1,7 @@
 import 'package:dartnissanconnect/src/unit_calculator.dart';
 import 'package:intl/intl.dart';
 
-enum ChargingSpeed { NONE, SLOW, NORMAL, FAST }
+enum ChargingSpeed { NONE, SLOW, NORMAL, FAST, UNKNOWN }
 
 class NissanConnectBattery {
   late DateTime dateTime;
